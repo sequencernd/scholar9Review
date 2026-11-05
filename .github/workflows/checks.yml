@@ -8,19 +8,38 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        php: ['8.1', '8.2', '8.3']
+        php: ['8.2', '8.3']
+    defaults:
+      run:
+        working-directory: ojs/plugins/generic/scholar9Review
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout OJS test environment
+        uses: actions/checkout@v4
+        with:
+          repository: pkp/ojs
+          ref: 3_5_0-5
+          path: ojs
+      - name: Initialize PKP library
+        run: git submodule update --init lib/pkp
+        working-directory: ojs
+      - name: Checkout plugin under test
+        uses: actions/checkout@v4
+        with:
+          path: ojs/plugins/generic/scholar9Review
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: curl, json
+          extensions: bcmath, curl, gd, intl, mbstring, xml, zip
           tools: composer:v2
           coverage: none
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install OJS test dependencies
+        run: composer install --no-dev --no-scripts --prefer-dist --no-interaction
+        working-directory: ojs/lib/pkp
       - run: composer validate --no-check-publish
       - run: find . -name '*.php' -not -path './stubs/*' -print0 | xargs -0 -n1 php -l
       - run: composer test
@@ -30,4 +49,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: scholar9Review-php-${{ matrix.php }}
-          path: .release/*
+          path: ojs/plugins/generic/scholar9Review/.release/*
