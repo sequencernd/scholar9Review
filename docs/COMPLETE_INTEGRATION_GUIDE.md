@@ -1,3 +1,5 @@
+> Historical reference. This document describes an earlier integration design. Use the current README for installation and configuration, and docs/PKP_RELEASE.md for release procedures.
+
 # Scholar9 OJS Integration — Complete Operations Guide
 
 > **ARCHIVED:** This guide describes a superseded full-stack design that modified Scholar9. Those Scholar9 changes have been reverted. Plugin 1.3.2 uses Scholar9's existing API only. Follow [OJS-Only Integration Guide](OJS_ONLY_INTEGRATION_GUIDE.md).

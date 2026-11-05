@@ -7,7 +7,7 @@ Official references:
 
 ## Verification before publication
 
-Run `composer validate --no-check-publish` and `composer test` in a standalone plugin source checkout. Test the installer and upgrade path on the exact OJS version to be declared. This repository's CI tests use fixtures, not a complete OJS/Scholar9 installation. Current local OJS code reports 3.5.0.5; do not claim OJS 3.4 or other versions without checking them.
+The GitHub workflow checks OJS 3.4.0-5 with PHP 8.1/8.2 and OJS 3.5.0-5 with PHP 8.2/8.3. Tests run inside their OJS source environments after installing PKP dependencies. The bootstrap check loads the real plugin entry point and exercises migration installation, repeat installation, additive upgrade, tenant isolation and rollback using an in-memory database. Run `composer validate --no-check-publish` and `composer test` from the installed plugin directory for the remaining suites. Remote Scholar9 interactions in those suites use fixtures.
 
 For the end-to-end check, use a test journal and Scholar9 account to verify enable/disable, settings, credential-free access requests and duplicates, credential approval/configuration, review request and reviewer replacement, both message directions without page reload, file access/expiry, ratings, revision status, visibility gates/public links and multi-journal isolation. Verify the additional notification arrives at inquiry@ojscloud.com using working OJS mail configuration.
 
@@ -24,7 +24,7 @@ Commit the clean source to main and push to origin. Run the CI workflow and insp
 From the plugin root in PowerShell:
 
 ```powershell
-./tools/prepare-release.ps1 -OjsVersion 3.5.0.5
+./tools/prepare-release.ps1
 ```
 
 The script produces `.release/scholar9Review-1.3.5.1.tar.gz`, `.release/CHECKSUMS.txt` and `.release/gallery-entry.xml`. It refuses to overwrite an existing archive. Runtime files are included using an explicit allow-list, with a single scholar9Review/ directory. Tests, stubs, editor files, Git files and release tooling are excluded. No runtime Composer install is required.
@@ -37,7 +37,7 @@ After verification, create/push tag v1.3.5.1 from the reviewed commit. In GitHub
 
 Fork https://github.com/pkp/plugin-gallery and create a submission branch. Insert the `<plugin>` element from gallery-entry.xml inside the existing `<plugins>` element in plugins.xml; do not replace the complete Gallery file or add another XML declaration/root. Validate the modified document against plugins.xsd. Do not assign certification; PKP assigns it after review.
 
-Open a pull request explaining the external Scholar9 account/API dependency, integration features, license, data flow (including the access-request notification), exact tested OJS version, tests run and archive URL/checksum. Follow PKP review comments. Acceptance and certification are controlled by PKP. Once listed, never modify the release asset: publish a new version for changes.
+Open a pull request explaining the external Scholar9 account/API dependency, integration features, license, data flow (including the access-request notification), exact tested OJS versions, tests run and archive URL/checksum. Disclose AI assistance in development, documentation and release preparation in accordance with PKP policy. Follow PKP review comments. Acceptance and certification are controlled by PKP. Once listed, never modify the release asset: publish a new version for changes.
 
 ## Current release preparation status
 

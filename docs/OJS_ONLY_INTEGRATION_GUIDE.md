@@ -1,3 +1,5 @@
+> Historical reference. This document describes an earlier integration design. Use the current README for installation and configuration, and docs/PKP_RELEASE.md for release procedures.
+
 # Scholar9 OJS-Only Integration Guide
 
 Plugin 1.3.2 integrates with Scholar9's existing external API and requires no Scholar9 application changes.

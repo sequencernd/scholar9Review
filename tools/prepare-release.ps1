@@ -1,6 +1,6 @@
 param(
     [string] $OutputDirectory = '',
-    [string] $OjsVersion = '3.5.0.5'
+    [string[]] $OjsVersion = @('3.4.0.5', '3.5.0.5')
 )
 $ErrorActionPreference = 'Stop'
 $pluginRoot = Split-Path -Parent $PSScriptRoot
@@ -13,7 +13,10 @@ try { $versionXml.Load($reader) } finally { $reader.Dispose() }
 $version = [string] $versionXml.version.release
 $releaseDate = [string] $versionXml.version.date
 if ($version -notmatch '^\d+\.\d+\.\d+\.\d+$') { throw 'Release version must contain four numbers.' }
-if ($OjsVersion -notmatch '^\d+\.\d+\.\d+\.\d+$') { throw 'Provide an exact OJS version with four numbers.' }
+foreach ($supportedVersion in $OjsVersion) {
+    if ($supportedVersion -notmatch '^\d+\.\d+\.\d+\.\d+$') { throw 'Provide exact OJS versions with four numbers.' }
+}
+$compatibilityXml = ($OjsVersion | Select-Object -Unique | ForEach-Object { "<version>$_</version>" }) -join ''
 if (!$OutputDirectory) { $OutputDirectory = Join-Path $pluginRoot '.release' }
 [IO.Directory]::CreateDirectory($OutputDirectory) | Out-Null
 $outputRoot = (Resolve-Path -LiteralPath $OutputDirectory).Path
@@ -26,7 +29,7 @@ $packageRoot = Join-Path $stagingRoot 'scholar9Review'
 [IO.Directory]::CreateDirectory($packageRoot) | Out-Null
 try {
     # Explicit allow-list prevents local credentials, tests and tools entering the installer.
-    $runtime = @('classes','css','js','locale','pages','templates','index.php','Scholar9ReviewPlugin.php','version.xml','composer.json','LICENSE','README.md','SECURITY.md')
+    $runtime = @('classes','css','js','locale','pages','templates','index.php','Scholar9ReviewPlugin.php','version.xml','composer.json','LICENSE','README.md','SECURITY.md','CHANGELOG.md')
     foreach ($entry in $runtime) {
         $source = Join-Path $pluginRoot $entry
         if (!(Test-Path -LiteralPath $source)) { throw "Missing required distribution item: $entry" }
@@ -63,7 +66,7 @@ try {
     </maintainer>
     <release date="$releaseDate" version="$version" md5="$md5">
       <package>https://github.com/sequencernd/scholar9Review/releases/download/v$version/$archiveName</package>
-      <compatibility application="ojs2"><version>$OjsVersion</version></compatibility>
+      <compatibility application="ojs2">$compatibilityXml</compatibility>
       <description locale="en">Initial Gallery submission of the Scholar9 integration. GPL-2.0-or-later.</description>
     </release>
   </plugin>
