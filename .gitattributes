@@ -1,0 +1,10 @@
+# Keep installation archives limited to runtime files and user documentation.
+/.vscode export-ignore
+/tests export-ignore
+/stubs export-ignore
+/tools export-ignore
+/.github export-ignore
+/.release export-ignore
+/docs export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore

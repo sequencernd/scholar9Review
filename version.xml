@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+<version>
+    <application>scholar9Review</application>
+    <type>plugins.generic</type>
+	<release>1.3.5.1</release>
+    <date>2026-11-05</date>
+    <lazy-load>1</lazy-load>
+    <class>Scholar9ReviewPlugin</class>
+</version>

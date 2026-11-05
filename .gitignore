@@ -1,0 +1,12 @@
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local PHP/Composer artifacts
+/vendor/
+*.log
+*.tmp
+
+# Locally generated release assets and publication checkout
+/.release/

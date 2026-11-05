@@ -1,0 +1,33 @@
+name: Plugin checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.1', '8.2', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, json
+          tools: composer:v2
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: composer validate --no-check-publish
+      - run: find . -name '*.php' -not -path './stubs/*' -print0 | xargs -0 -n1 php -l
+      - run: composer test
+      - name: Build installation archive
+        shell: pwsh
+        run: ./tools/prepare-release.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scholar9Review-php-${{ matrix.php }}
+          path: .release/*

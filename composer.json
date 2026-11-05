@@ -1,0 +1,58 @@
+{
+    "name":  "scholar9/ojs-review-plugin",
+    "description":  "Scholar9 Transparent Peer Review integration plugin for OJS 3.5",
+    "type":  "library",
+    "license":  "GPL-2.0-or-later",
+    "authors":  [
+                    {
+                        "name":  "SEQUENCE RESEARCH \u0026 DEVELOPMENT PRIVATE LIMITED",
+                        "role":  "Maintainer"
+                    },
+                    {
+                        "name":  "JW Books Publication",
+                        "email":  "scholar9doi@gmail.com"
+                    }
+                ],
+    "require":  {
+                    "php":  "^8.1"
+                },
+    "autoload":  {
+                     "psr-4":  {
+                                   "APP\\plugins\\generic\\scholar9Review\\":  [
+                                                                                   ".",
+                                                                                   "classes/",
+                                                                                   "pages/"
+                                                                               ]
+                               }
+                 },
+    "autoload-dev":  {
+                         "files":  [
+                                       "stubs/pkp-stubs.php"
+                                   ]
+                     },
+    "scripts":  {
+                    "test:php":  [
+                                     "@php tests/responseCache.test.php",
+                                     "@php tests/apiClient.test.php",
+                                     "@php tests/handlerSecurity.test.php",
+                                     "@php tests/syncService.test.php",
+                                     "@php tests/metadataProvider.test.php",
+                                     "@php tests/pluginSyncDialog.test.php"
+                                 ],
+                    "test:js":  "node tests/workflowIntegration.test.cjs",
+                    "test":  [
+                                 "@test:php",
+                                 "@test:js"
+                             ]
+                },
+    "config":  {
+                   "optimize-autoloader":  true
+               },
+    "minimum-stability":  "stable",
+    "prefer-stable":  true,
+    "homepage":  "https://github.com/sequencernd/scholar9Review",
+    "support":  {
+                    "issues":  "https://github.com/sequencernd/scholar9Review/issues",
+                    "source":  "https://github.com/sequencernd/scholar9Review"
+                }
+}

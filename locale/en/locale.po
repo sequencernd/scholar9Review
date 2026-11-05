@@ -1,0 +1,370 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Scholar9 Review Plugin 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.scholar9Review.displayName"
+msgstr "Scholar9 Transparent Peer Review"
+
+msgid "plugins.generic.scholar9Review.description"
+msgstr "Sends OJS submissions to Scholar9 for transparent peer review, synchronises reviewer activity, AI analysis, and editorial decisions back into OJS."
+
+msgid "plugins.generic.scholar9Review.settings.saved"
+msgstr "Scholar9 settings saved and webhook registered."
+
+msgid "plugins.generic.scholar9Review.settings.connection"
+msgstr "API Connection"
+
+msgid "plugins.generic.scholar9Review.settings.setup.title"
+msgstr "How to obtain and configure Scholar9 credentials"
+
+msgid "plugins.generic.scholar9Review.settings.setup.intro"
+msgstr "Credentials are issued per OJS journal. Use only the credential set approved for this journal."
+
+msgid "plugins.generic.scholar9Review.settings.setup.baseUrl"
+msgstr "Enter the Scholar9 Base URL below and save. Use only the origin, for example https://scholar9.com; do not add /api or a journal slug."
+
+msgid "plugins.generic.scholar9Review.settings.setup.request"
+msgstr "If you do not have credentials, leave Client ID, Client Secret and Journal Slug empty. After saving, close this form and select Sync to Scholar9 beside the plugin to submit an API access request."
+
+msgid "plugins.generic.scholar9Review.settings.setup.approve"
+msgstr "A Scholar9 administrator selects a plan and approves the request under API Management > Pending Requests. Scholar9 then issues the Client ID, one-time Client Secret and Journal Slug."
+
+msgid "plugins.generic.scholar9Review.settings.setup.credentials"
+msgstr "Return here, enter the three issued values exactly as provided, keep SSL verification enabled in production, and save."
+
+msgid "plugins.generic.scholar9Review.settings.setup.security"
+msgstr "Keep the Client Secret private. Never include it in submissions, reviewer messages, URLs or screenshots."
+
+
+msgid "plugins.generic.scholar9Review.settings.baseUrl"
+msgstr "Scholar9 Base URL"
+
+msgid "plugins.generic.scholar9Review.settings.baseUrl.required"
+msgstr "Please enter the Scholar9 API base URL."
+
+msgid "plugins.generic.scholar9Review.settings.baseUrl.description"
+msgstr "e.g. https://scholar9.com or http://192.168.1.10:8080 — do not include /api/v1"
+
+msgid "plugins.generic.scholar9Review.settings.clientId"
+msgstr "Client ID"
+
+msgid "plugins.generic.scholar9Review.settings.clientId.required"
+msgstr "Please enter your Scholar9 Client ID."
+
+msgid "plugins.generic.scholar9Review.settings.clientSecret"
+msgstr "Client Secret"
+
+msgid "plugins.generic.scholar9Review.settings.clientSecret.required"
+msgstr "Please enter your Scholar9 Client Secret."
+
+msgid "plugins.generic.scholar9Review.settings.journalSlug"
+msgstr "Journal Slug"
+
+msgid "plugins.generic.scholar9Review.settings.journalSlug.description"
+msgstr "Your Scholar9 journal namespace, e.g. myjournal. Determines the API URL scope."
+
+msgid "plugins.generic.scholar9Review.settings.journalSlug.required"
+msgstr "Please enter your Scholar9 journal slug."
+
+msgid "plugins.generic.scholar9Review.settings.webhookSecret"
+msgstr "Webhook Secret"
+
+msgid "plugins.generic.scholar9Review.settings.webhookSecret.description"
+msgstr "Auto-generated. Scholar9 uses this to sign incoming webhook payloads (HMAC-SHA256)."
+
+msgid "plugins.generic.scholar9Review.settings.webhookSecret.invalid"
+msgstr "The webhook secret must be a 32 to 128 character hexadecimal value."
+
+msgid "plugins.generic.scholar9Review.settings.verifySsl"
+msgstr "SSL Verification"
+
+msgid "plugins.generic.scholar9Review.settings.verifySsl.label"
+msgstr "Verify SSL certificate when calling Scholar9 (recommended)"
+
+msgid "plugins.generic.scholar9Review.settings.reviewDefaults"
+msgstr "Review Defaults"
+
+msgid "plugins.generic.scholar9Review.settings.defaultReviewType"
+msgstr "Default Review Type"
+
+msgid "plugins.generic.scholar9Review.settings.reviewType.open"
+msgstr "Open review"
+
+msgid "plugins.generic.scholar9Review.settings.reviewType.singleAnonymous"
+msgstr "Single-anonymous review"
+
+msgid "plugins.generic.scholar9Review.settings.reviewType.doubleAnonymous"
+msgstr "Double-anonymous review"
+
+msgid "plugins.generic.scholar9Review.settings.reviewDeadline"
+msgstr "Review Deadline"
+
+msgid "plugins.generic.scholar9Review.settings.reviewDeadline.description"
+msgstr "Number of days from submission to deadline (e.g. 30)"
+
+msgid "plugins.generic.scholar9Review.settings.automation"
+msgstr "Automation"
+
+msgid "plugins.generic.scholar9Review.settings.autoSync"
+msgstr "Auto-sync"
+
+msgid "plugins.generic.scholar9Review.settings.autoSync.label"
+msgstr "Automatically pull status updates from Scholar9 (via webhooks)"
+
+msgid "plugins.generic.scholar9Review.settings.uploadFiles"
+msgstr "Upload Manuscript"
+
+msgid "plugins.generic.scholar9Review.settings.uploadFiles.label"
+msgstr "Attach manuscript file URL when sending to Scholar9"
+
+msgid "plugins.generic.scholar9Review.settings.uploadSupplementary"
+msgstr "Upload Supplementary Files"
+
+msgid "plugins.generic.scholar9Review.settings.uploadSupplementary.label"
+msgstr "Also attach supplementary files to the Scholar9 review"
+
+msgid "plugins.generic.scholar9Review.settings.credentials.incomplete"
+msgstr "Enter both the Client ID and Client Secret, or leave both empty and use Sync to Scholar9 to request access."
+
+msgid "plugins.generic.scholar9Review.sync.button"
+msgstr "Sync to Scholar9"
+
+msgid "plugins.generic.scholar9Review.sync.title"
+msgstr "Sync journal to Scholar9"
+
+msgid "plugins.generic.scholar9Review.sync.confirm"
+msgstr "Send this journal's profile and contact details to Scholar9? If API credentials are not configured, this submits an API access request for approval."
+
+msgid "plugins.generic.scholar9Review.sync.noJournal"
+msgstr "Open this action from a journal's plugin settings."
+
+msgid "plugins.generic.scholar9Review.sync.baseUrlMissing"
+msgstr "Open Settings and enter the Scholar9 Base URL before syncing."
+
+msgid "plugins.generic.scholar9Review.sync.failed"
+msgstr "Scholar9 could not sync this journal. Check the Scholar9 URL and server logs."
+
+msgid "plugins.generic.scholar9Review.sync.error.title"
+msgstr "Scholar9 synchronization could not be completed"
+
+msgid "plugins.generic.scholar9Review.sync.error.connectivity"
+msgstr "For a live OJS site, the Scholar9 Base URL must be a publicly reachable HTTPS address. Verify the URL in plugin Settings and confirm that DNS, the destination port, and firewall rules allow the OJS server to connect, then retry."
+
+msgid "plugins.generic.scholar9Review.sync.requiredFieldsMissing"
+msgstr "Scholar9 sync cannot continue. Complete these required OJS journal fields: {$fields}. Update Settings > Journal and Settings > Website, then try Sync to Scholar9 again."
+
+msgid "plugins.generic.scholar9Review.sync.missing.title"
+msgstr "Journal profile incomplete"
+
+msgid "plugins.generic.scholar9Review.sync.missing.intro"
+msgstr "Scholar9 needs the following journal information before synchronization can continue."
+
+msgid "plugins.generic.scholar9Review.sync.missing.listTitle"
+msgstr "Required information"
+
+msgid "plugins.generic.scholar9Review.sync.missing.helpTitle"
+msgstr "Where to update these fields"
+
+msgid "plugins.generic.scholar9Review.sync.missing.help"
+msgstr "Complete journal identity, contact and description fields under Settings > Journal or Settings > Website, save your changes, and then run Sync to Scholar9 again."
+
+msgid "plugins.generic.scholar9Review.sync.missing.frequencyTitle"
+msgstr "How to provide issue frequency"
+
+msgid "plugins.generic.scholar9Review.sync.missing.frequencyHelp"
+msgstr "OJS 3.5 has no dedicated issue-frequency selector. Open Settings > Journal and add a clear statement to the journal Description or About text, such as “Publication frequency: Quarterly”, then save. Alternatively, publish at least two dated issues under Issues and the plugin will calculate the frequency automatically."
+
+msgid "plugins.generic.scholar9Review.sync.ready.title"
+msgstr "Journal profile ready"
+
+msgid "plugins.generic.scholar9Review.sync.ready.intro"
+msgstr "The required profile information for {$journalName} is complete."
+
+msgid "plugins.generic.scholar9Review.sync.ready.update"
+msgstr "Update the existing Scholar9 journal"
+
+msgid "plugins.generic.scholar9Review.sync.ready.request"
+msgstr "Request Scholar9 API access"
+
+msgid "plugins.generic.scholar9Review.sync.ready.security"
+msgstr "Only validated, allow-listed journal metadata will be transmitted. Executable markup and unsafe URLs are rejected."
+
+msgid "plugins.generic.scholar9Review.sync.submit"
+msgstr "Sync journal now"
+
+msgid "plugins.generic.scholar9Review.sync.requested"
+msgstr "API access request sent. Wait for Scholar9 approval before trying again."
+
+msgid "plugins.generic.scholar9Review.sync.pending.title"
+msgstr "Request awaiting Scholar9 approval"
+
+msgid "plugins.generic.scholar9Review.sync.pending"
+msgstr "This journal already has an API access request pending. No duplicate request was sent. Wait for Scholar9 approval."
+
+msgid "plugins.generic.scholar9Review.sync.approved.title"
+msgstr "Scholar9 access approved"
+
+msgid "plugins.generic.scholar9Review.sync.approved"
+msgstr "This journal is connected to Scholar9. You can synchronize updated journal metadata without creating another access request."
+
+msgid "plugins.generic.scholar9Review.sync.reference"
+msgstr "Request reference"
+
+msgid "plugins.generic.scholar9Review.sync.completed"
+msgstr "Scholar9 journal profile synchronized successfully."
+
+msgid "plugins.generic.scholar9Review.sync.review.intro"
+msgstr "Review and, if necessary, correct the complete journal profile before it is sent to Scholar9."
+
+msgid "plugins.generic.scholar9Review.sync.review.help"
+msgstr "Values are prefilled from this OJS journal. Changes made here apply to this synchronization request only and do not modify OJS settings."
+
+msgid "plugins.generic.scholar9Review.sync.field.locked"
+msgstr "Managed by OJS settings and cannot be changed here."
+
+msgid "plugins.generic.scholar9Review.sync.review.securityTitle"
+msgstr "Security and identity protection"
+
+msgid "plugins.generic.scholar9Review.sync.section.identity"
+msgstr "Journal identity and publication details"
+
+msgid "plugins.generic.scholar9Review.sync.section.publisher"
+msgstr "Publisher and journal contact"
+
+msgid "plugins.generic.scholar9Review.sync.section.publisher.help"
+msgstr "The publisher and contact person are separate from the journal title. Scholar9 will never use the contact person's name as the journal name."
+
+msgid "plugins.generic.scholar9Review.sync.section.policies"
+msgstr "Policies, indexing and editorial information"
+
+msgid "plugins.generic.scholar9Review.sync.section.system"
+msgstr "Read-only OJS source identity sent to Scholar9"
+
+msgid "plugins.generic.scholar9Review.sync.field.journalName"
+msgstr "Journal full name"
+
+msgid "plugins.generic.scholar9Review.sync.field.journalName.help"
+msgstr "This exact value becomes the Scholar9 journal title. It is never taken from the applicant or contact name."
+
+msgid "plugins.generic.scholar9Review.sync.field.shortName"
+msgstr "Journal short name"
+
+msgid "plugins.generic.scholar9Review.sync.field.apiSlug"
+msgstr "Scholar9 API slug"
+
+msgid "plugins.generic.scholar9Review.sync.field.description"
+msgstr "About journal"
+
+msgid "plugins.generic.scholar9Review.sync.field.onlineIssn"
+msgstr "e-ISSN"
+
+msgid "plugins.generic.scholar9Review.sync.field.printIssn"
+msgstr "p-ISSN"
+
+msgid "plugins.generic.scholar9Review.sync.field.firstYear"
+msgstr "Year of first publication"
+
+msgid "plugins.generic.scholar9Review.sync.field.frequency"
+msgstr "Issue frequency"
+
+msgid "plugins.generic.scholar9Review.sync.field.languages"
+msgstr "Accepted manuscript languages"
+
+msgid "plugins.generic.scholar9Review.sync.field.commaSeparated"
+msgstr "Separate multiple values with commas."
+
+msgid "plugins.generic.scholar9Review.sync.field.subjects"
+msgstr "Journal disciplines / subjects"
+
+msgid "plugins.generic.scholar9Review.sync.field.publisher"
+msgstr "Publisher / institution"
+
+msgid "plugins.generic.scholar9Review.sync.field.contactName"
+msgstr "Journal contact name"
+
+msgid "plugins.generic.scholar9Review.sync.field.contactEmail"
+msgstr "Journal contact email"
+
+msgid "plugins.generic.scholar9Review.sync.field.contactPhone"
+msgstr "Journal contact phone"
+
+msgid "plugins.generic.scholar9Review.sync.field.country"
+msgstr "Country"
+
+msgid "plugins.generic.scholar9Review.sync.field.address"
+msgstr "Mailing address"
+
+msgid "plugins.generic.scholar9Review.sync.field.state"
+msgstr "State / province"
+
+msgid "plugins.generic.scholar9Review.sync.field.city"
+msgstr "City"
+
+msgid "plugins.generic.scholar9Review.sync.field.postalCode"
+msgstr "Postal / ZIP code"
+
+msgid "plugins.generic.scholar9Review.sync.field.issnCountry"
+msgstr "ISSN assignee country"
+
+msgid "plugins.generic.scholar9Review.sync.field.license"
+msgstr "Open-access license"
+
+msgid "plugins.generic.scholar9Review.sync.field.impactFactor"
+msgstr "Journal impact factor"
+
+msgid "plugins.generic.scholar9Review.sync.field.impactAgency"
+msgstr "Impact factor assignee agency"
+
+msgid "plugins.generic.scholar9Review.sync.field.editorialBoard"
+msgstr "Editorial board members"
+
+msgid "plugins.generic.scholar9Review.sync.field.editorialBoard.help"
+msgstr "One member per line: Role | Full name | Email. Email is optional."
+
+msgid "plugins.generic.scholar9Review.sync.value.notSpecified"
+msgstr "Not specified"
+
+msgid "plugins.generic.scholar9Review.sync.field.sourceId"
+msgstr "Stable OJS journal ID"
+
+msgid "plugins.generic.scholar9Review.sync.field.sourceUrl"
+msgstr "OJS journal URL"
+
+msgid "plugins.generic.scholar9Review.sync.field.contextId"
+msgstr "OJS context ID"
+
+msgid "plugins.generic.scholar9Review.sync.field.ojsVersion"
+msgstr "OJS version"
+
+msgid "plugins.generic.scholar9Review.sync.field.path"
+msgstr "OJS journal path"
+
+msgid "plugins.generic.scholar9Review.sync.field.photoUrl"
+msgstr "Journal image URL"
+
+msgid "plugins.generic.scholar9Review.sync.field.conferenceCharges"
+msgstr "Conference charges (optional)"
+
+msgid "plugins.generic.scholar9Review.sync.section.indexing"
+msgstr "Indexing profiles"
+
+msgid "plugins.generic.scholar9Review.sync.section.indexing.help"
+msgstr "Only verified HTTP(S) profile URLs are accepted. Leave an agency blank when the journal has no profile there."
+
+msgid "plugins.generic.scholar9Review.sync.field.journalUrl"
+msgstr "OJS journal URL"
+
+msgid "plugins.generic.scholar9Review.sync.field.primaryLocale"
+msgstr "Primary locale"
+
+msgid "plugins.generic.scholar9Review.sync.field.supportedLocales"
+msgstr "Supported locales"
+
+msgid "plugins.generic.scholar9Review.sync.field.publicationPlatform"
+msgstr "Publication platform"
+
+msgid "plugins.generic.scholar9Review.sync.section.system.help"
+msgstr "These values identify the source OJS journal and are transmitted exactly as shown. They cannot be edited in this review screen."
