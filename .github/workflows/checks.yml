@@ -50,6 +50,7 @@ jobs:
         working-directory: ojs/lib/pkp
       - run: composer validate --no-check-publish
       - run: find . -name '*.php' -not -path './stubs/*' -print0 | xargs -0 -n1 php -l
+      - run: php tests/pluginBootstrap.integration.php
       - run: composer test
       - name: Build installation archive
         shell: pwsh
